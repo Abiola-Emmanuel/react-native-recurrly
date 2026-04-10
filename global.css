@@ -298,6 +298,26 @@
     @apply border-destructive;
   }
 
+  .auth-input-shell {
+    @apply flex-row items-center rounded-2xl border border-border bg-background;
+  }
+
+  .auth-input-shell-error {
+    @apply border-destructive;
+  }
+
+  .auth-input-control {
+    @apply flex-1 px-4 py-4 text-base font-sans-medium text-primary;
+  }
+
+  .auth-input-toggle {
+    @apply px-4 py-3;
+  }
+
+  .auth-input-toggle-text {
+    @apply text-xs font-sans-bold uppercase tracking-[0.4px] text-muted-foreground;
+  }
+
   .auth-error {
     @apply text-xs font-sans-medium text-destructive;
   }
@@ -348,6 +368,18 @@
 
   .auth-link {
     @apply text-sm font-sans-bold text-accent;
+  }
+
+  .auth-form-notice {
+    @apply rounded-2xl border border-destructive/15 bg-destructive/10 px-4 py-3;
+  }
+
+  .auth-form-notice-text {
+    @apply text-sm font-sans-medium text-destructive;
+  }
+
+  .auth-footnote {
+    @apply mt-4 text-center text-xs font-sans-medium text-muted-foreground;
   }
 
   .modal-overlay {
