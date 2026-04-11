@@ -1,10 +1,11 @@
 import ListHeading from "@/components/ListHeading";
 import SubscriptionCard from "@/components/SubscriptionCard";
 import UpcomingSubscriptionCard from "@/components/UpcomingSubscriptionCard";
-import { HOME_BALANCE, HOME_SUBSCRIPTIONS, HOME_USER, UPCOMING_SUBSCRIPTIONS } from "@/constants/data";
+import { HOME_BALANCE, HOME_SUBSCRIPTIONS, UPCOMING_SUBSCRIPTIONS } from "@/constants/data";
 import { icons } from "@/constants/icons";
 import images from "@/constants/images";
 import "@/global.css";
+import { useUser } from "@clerk/expo";
 import { formatCurrency } from "@/lib/utils";
 import dayjs from "dayjs";
 import { styled } from "nativewind";
@@ -17,6 +18,16 @@ const SafeAreaView = styled(RNSafeAreaView)
 
 export default function App() {
   const [expandedSubscriptionId, setExpandedSubscriptionId] = useState<string | null>(null)
+  const { user } = useUser()
+
+  const displayName =
+    user?.firstName?.trim() ||
+    user?.fullName?.trim() ||
+    user?.primaryEmailAddress?.emailAddress?.split('@')[0] ||
+    'Emman'
+
+  const avatarSource = user?.imageUrl ? { uri: user.imageUrl } : images.avatar
+
   return (
     <SafeAreaView className="flex-1 bg-background p-5">
 
@@ -27,10 +38,10 @@ export default function App() {
             <View className="home-header">
               <View className="home-user">
                 <Image
-                  source={images.avatar}
+                  source={avatarSource}
                   className="home-avatar"
                 />
-                <Text className="home-user-name">{HOME_USER.name}</Text>
+                <Text className="home-user-name">{displayName}</Text>
               </View>
 
               <Image
