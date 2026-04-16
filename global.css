@@ -226,6 +226,18 @@
     @apply py-4 text-sm font-sans-medium text-black/60;
   }
 
+  .subscriptions-search-wrap {
+    @apply rounded-3xl border border-border bg-card px-2 py-2;
+  }
+
+  .subscriptions-search-input {
+    @apply rounded-2xl bg-background px-4 py-4 text-base font-sans-medium text-primary;
+  }
+
+  .subscriptions-empty {
+    @apply mt-8 items-center rounded-3xl border border-dashed border-border bg-card px-5 py-8;
+  }
+
   .auth-safe-area {
     @apply flex-1 bg-background;
   }
